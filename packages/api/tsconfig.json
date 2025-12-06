@@ -3,8 +3,7 @@
 	"compilerOptions": {
 		"outDir": "dist",
 		"declaration": false,
-		"declarationMap": false,
-		"types": ["bun"]
+		"declarationMap": false
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules", "dist", "src/__tests__"]
