@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import { Crown, UserMinus } from "lucide-react";
+import { Button } from "@workspace/ui/components/button";
 import {
 	Sheet,
 	SheetContent,
@@ -9,9 +8,10 @@ import {
 	SheetHeader,
 	SheetTitle,
 } from "@workspace/ui/components/sheet";
-import { Button } from "@workspace/ui/components/button";
-import { trpc } from "@/lib/trpc";
+import { Crown, UserMinus } from "lucide-react";
+import Image from "next/image";
 import { useSession } from "@/lib/auth-client";
+import { trpc } from "@/lib/trpc";
 
 interface MembersSheetProps {
 	roomId: string;
@@ -70,7 +70,10 @@ export function MembersSheet({
 					{isLoading ? (
 						<div className="space-y-3">
 							{[...Array(3)].map((_, i) => (
-								<div key={i} className="flex items-center gap-3 animate-pulse">
+								<div
+									key={i.toString()}
+									className="flex items-center gap-3 animate-pulse"
+								>
 									<div className="size-10 rounded-full bg-accent" />
 									<div className="flex-1 space-y-2">
 										<div className="h-4 bg-accent rounded w-24" />

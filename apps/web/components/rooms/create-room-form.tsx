@@ -1,12 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2 } from "lucide-react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { trpc } from "@/lib/trpc";
 import { Button } from "@workspace/ui/components/button";
 import { Card, CardContent } from "@workspace/ui/components/card";
 import {
@@ -20,6 +14,12 @@ import {
 } from "@workspace/ui/components/form";
 import { Input } from "@workspace/ui/components/input";
 import { Textarea } from "@workspace/ui/components/textarea";
+import { Loader2 } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { trpc } from "@/lib/trpc";
 import { PrivacyToggle } from "./privacy-toggle";
 import { RoomPreview } from "./room-preview";
 
@@ -28,7 +28,10 @@ const createRoomSchema = z.object({
 		.string()
 		.min(1, "Room name is required")
 		.max(50, "Room name must be 50 characters or less"),
-	description: z.string().max(200, "Description must be 200 characters or less").optional(),
+	description: z
+		.string()
+		.max(200, "Description must be 200 characters or less")
+		.optional(),
 	isPublic: z.boolean(),
 });
 

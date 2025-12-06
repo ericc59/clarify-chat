@@ -1,17 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import {
-	createWSClient,
-	httpBatchLink,
-	splitLink,
-	wsLink,
-} from "@trpc/client";
+import { createWSClient, httpBatchLink, splitLink, wsLink } from "@trpc/client";
+import type { AppRouter } from "@workspace/api";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { useState } from "react";
 import superjson from "superjson";
 import { trpc } from "@/lib/trpc";
-import type { AppRouter } from "@workspace/api";
 
 function makeQueryClient() {
 	return new QueryClient({
@@ -23,7 +18,7 @@ function makeQueryClient() {
 	});
 }
 
-let browserQueryClient: QueryClient | undefined = undefined;
+let browserQueryClient: QueryClient | undefined;
 
 function getQueryClient() {
 	if (typeof window === "undefined") {
@@ -40,8 +35,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
 	const [trpcClient] = useState(() => {
 		const wsClient = createWSClient({
-			url:
-				process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:4001",
+			url: process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:4001",
 		});
 
 		return trpc.createClient({

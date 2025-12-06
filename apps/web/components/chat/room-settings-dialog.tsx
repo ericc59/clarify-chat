@@ -1,12 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2 } from "lucide-react";
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { trpc } from "@/lib/trpc";
-import { useSession } from "@/lib/auth-client";
 import { Button } from "@workspace/ui/components/button";
 import {
 	Dialog,
@@ -27,7 +21,13 @@ import {
 } from "@workspace/ui/components/form";
 import { Input } from "@workspace/ui/components/input";
 import { Textarea } from "@workspace/ui/components/textarea";
+import { Loader2 } from "lucide-react";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 import { PrivacyToggle } from "@/components/rooms/privacy-toggle";
+import { useSession } from "@/lib/auth-client";
+import { trpc } from "@/lib/trpc";
 
 const roomSettingsSchema = z.object({
 	name: z

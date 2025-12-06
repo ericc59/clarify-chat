@@ -1,5 +1,6 @@
 "use client";
 
+import type { RoomListEvent } from "@workspace/api/events";
 import {
 	ChevronLeft,
 	ChevronRight,
@@ -18,7 +19,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { signOut } from "@/lib/auth-client";
 import { trpc } from "@/lib/trpc";
-import type { RoomListEvent } from "@workspace/api/events";
 
 interface User {
 	id: string;

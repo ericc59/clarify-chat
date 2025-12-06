@@ -1,18 +1,6 @@
 "use client";
 
-import { Copy, Link2, LogOut, MoreHorizontal, Trash2 } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { trpc } from "@/lib/trpc";
-import { useSession } from "@/lib/auth-client";
 import { Button } from "@workspace/ui/components/button";
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuSeparator,
-	DropdownMenuTrigger,
-} from "@workspace/ui/components/dropdown-menu";
 import {
 	Dialog,
 	DialogContent,
@@ -21,6 +9,18 @@ import {
 	DialogHeader,
 	DialogTitle,
 } from "@workspace/ui/components/dialog";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuSeparator,
+	DropdownMenuTrigger,
+} from "@workspace/ui/components/dropdown-menu";
+import { Copy, Link2, LogOut, MoreHorizontal, Trash2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useSession } from "@/lib/auth-client";
+import { trpc } from "@/lib/trpc";
 
 interface RoomOptionsDropdownProps {
 	roomId: string;
