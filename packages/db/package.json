@@ -1,0 +1,31 @@
+{
+	"name": "@workspace/db",
+	"version": "0.0.0",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"check-types": "tsc --noEmit",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "bun run with-env -- drizzle-kit migrate",
+		"db:migrate:test": "bun run with-env:test -- drizzle-kit migrate",
+		"db:studio": "drizzle-kit studio",
+		"with-env": "bun run --env-file=../../.env",
+		"with-env:test": "bun run --env-file=../../.env.test"
+	},
+	"dependencies": {
+		"@paralleldrive/cuid2": "^3.0.4",
+		"@workspace/logger": "workspace:*",
+		"drizzle-orm": "^0.38.3",
+		"postgres": "^3.4.5"
+	},
+	"devDependencies": {
+		"@workspace/typescript-config": "workspace:*",
+		"drizzle-kit": "^0.30.2",
+		"typescript": "^5.9.2"
+	},
+	"exports": {
+		".": "./src/index.ts",
+		"./schema": "./src/schema.ts",
+		"./client": "./src/client.ts"
+	}
+}
